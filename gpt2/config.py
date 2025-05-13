@@ -1,0 +1,10 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+DATASET_PATH = os.getenv("GPT2_DATASET_PATH")
+MODEL_NAME = os.getenv("GPT2_MODEL_NAME")
+OUTPUT_DIR = os.getenv("GPT2_OUTPUT_DIR")
+DATASET_MODEL_PATH = os.getenv("GPT2_DATASET_MODEL_PATH")
+DATASET_MODEL_NAME = os.getenv("GPT2_DATASET_MODEL_NAME")
