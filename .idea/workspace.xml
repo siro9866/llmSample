@@ -5,20 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b87d9fbd-3ec7-4c1b-9587-9a49f94939ee" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/llmSample.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gpt2/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gpt2/dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gpt2/generate_text.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gpt2/run_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gpt2/run_train.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gpt2/train_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gpt2/zinfo.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gpt2/runTrainModel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpt2/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/gpt2/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpt2/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/gpt2/datasetMake.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpt2/generate_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/gpt2/modelGenerate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpt2/run_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/gpt2/runModel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpt2/run_train.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpt2/train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/gpt2/trainModel.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,9 +30,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "siro9866"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/siro9866/llmSample.git",
+    "accountId": "a5a75f2d-181b-4210-93bc-d7150da957a2"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2x2dkzZnN2HWThh26lBMZzAO6G7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -47,16 +54,19 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.dataset.executor": "Run",
+    "Python.datasetMake.executor": "Run",
     "Python.run_train.executor": "Run",
     "Python.train_model.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/dev/workspace/study_python/llmSample/gpt2"
+    "last_opened_file_path": "/Users/seowon/dev/workspace/study_python/llmSample/gpt2",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gpt2" />
       <recent name="C:\dev\workspace\study_python\llmSample\gpt2" />
       <recent name="C:\dev\workspace\study_python\llmSample" />
       <recent name="C:\dev\workspace\study_python\llmSample\hongBook" />

@@ -1,5 +1,6 @@
 from transformers import GPT2LMHeadModel, GPT2Tokenizer, Trainer, TrainingArguments
 from config import MODEL_NAME, OUTPUT_DIR
+import os
 
 def tokenize_data(dataset, tokenizer):
     def tokenize_fn(example):
@@ -32,6 +33,6 @@ def train_model(dataset):
     )
 
     trainer.train()
-
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
     model.save_pretrained(OUTPUT_DIR)
     tokenizer.save_pretrained(OUTPUT_DIR)
