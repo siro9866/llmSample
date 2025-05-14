@@ -6,7 +6,8 @@ from trl import SFTTrainer
 
 # 모델 및 토크나이저 로드
 model_id = "skt/kogpt2-base-v2"
-tokenizer = AutoTokenizer.from_pretrained(model_id, use_fast=False)
+# tokenizer = AutoTokenizer.from_pretrained(model_id, use_fast=False)
+tokenizer = AutoTokenizer.from_pretrained(model_id, force_download=True)
 tokenizer.pad_token = tokenizer.eos_token  # padding 설정
 model = AutoModelForCausalLM.from_pretrained(model_id)
 
