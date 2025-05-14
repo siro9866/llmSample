@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b87d9fbd-3ec7-4c1b-9587-9a49f94939ee" name="변경" comment="파일정리">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lora/result" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lora/runOriginModel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lora/trainModel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lora/zinfo.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gpt2/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/gpt2/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gpt2/runTrainModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/gpt2/runTrainModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gpt2/trainModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/gpt2/trainModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gpt2/zinfo.md" beforeDir="false" afterPath="$PROJECT_DIR$/gpt2/zinfo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +51,8 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.dataset.executor": "Run",
     "Python.datasetMake.executor": "Run",
+    "Python.runModel.executor": "Run",
+    "Python.runOriginModel.executor": "Run",
     "Python.runTrainModel.executor": "Run",
     "Python.run_train.executor": "Run",
     "Python.trainModel.executor": "Run",
@@ -59,12 +60,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/seowon/dev/workspace/study_python/llmSample/gpt2",
+    "last_opened_file_path": "C:/dev/workspace/study_python/llmSample/lora",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\dev\workspace\study_python\llmSample\lora" />
       <recent name="$PROJECT_DIR$/gpt2" />
       <recent name="C:\dev\workspace\study_python\llmSample\gpt2" />
       <recent name="C:\dev\workspace\study_python\llmSample" />
@@ -96,6 +98,29 @@
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="파일정리" />
