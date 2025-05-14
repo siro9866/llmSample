@@ -1,7 +1,5 @@
 from transformers import GPT2LMHeadModel, GPT2Tokenizer, Trainer, TrainingArguments
-from datasets import Dataset
 from config import MODEL_NAME, OUTPUT_DIR
-import os
 
 def tokenize_data(dataset, tokenizer):
     def tokenize_fn(example):

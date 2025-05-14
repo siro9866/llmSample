@@ -1,5 +1,5 @@
 # 허깅페이스에서 데이타를 다운로드 받는다
-
+import datasets
 from datasets import load_dataset, load_from_disk
 from config import DATASET_PATH, DATASET_MODEL_PATH, DATASET_MODEL_NAME
 import os
@@ -8,6 +8,8 @@ import os
 dataPath = os.path.join(DATASET_PATH, DATASET_MODEL_PATH, DATASET_MODEL_NAME)
 # 허깅페이스에서 데이타셋 다운로드
 def save_dataset():
+    print("datasets version:", datasets.__version__)
+    print("Trying to load dataset...")
     dataset = load_dataset(f"{DATASET_MODEL_PATH}/{DATASET_MODEL_NAME}", split="train")
 
     # 데이타셋파일 저장
@@ -30,5 +32,5 @@ def preprocess_text(example):
     return {"text": text}
 
 print(dataPath)
-#save_dataset()
+save_dataset()
 
