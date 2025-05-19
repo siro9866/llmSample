@@ -1,62 +1,68 @@
 # lora를 활용해 파인튜닝
-from datasets import load_dataset
-from transformers import AutoTokenizer, AutoModelForCausalLM, TrainingArguments
-from peft import LoraConfig, get_peft_model, TaskType
-from trl import SFTTrainer
+from datasets import load_dataset, load_from_disk
+from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, Trainer, DataCollatorForLanguageModeling
+from peft import get_peft_model, LoraConfig, TaskType
 
-# 모델 및 토크나이저 로드
-model_id = "skt/kogpt2-base-v2"
-# tokenizer = AutoTokenizer.from_pretrained(model_id, use_fast=False)
-# tokenizer = AutoTokenizer.from_pretrained(model_id, force_download=True)
-# tokenizer.pad_token = tokenizer.eos_token  # padding 설정
-model = AutoModelForCausalLM.from_pretrained(model_id)
+# 모델과 토크나이저
+model_path = "/Users/Shared/app/llm/model/origin/kogpt2-base-v2"
+data_path = "/Users/Shared/app/llm/datasets/preprocess/AI_HUB_legal_QA_data"
+finetune_model_path = "/Users/Shared/app/llm/model/finetune"
 
-# LoRA 설정
+# 2. 토크나이저 및 모델 로드
+tokenizer = AutoTokenizer.from_pretrained(model_path)
+tokenizer.pad_token = tokenizer.eos_token  # 💡 핵심 설정
+model = AutoModelForCausalLM.from_pretrained(model_path)
+
+# 3. 데이터셋 로드 및 구조 확인
+dataset = load_from_disk(data_path)
+print("✅ 데이터 샘플 구조:", dataset[0].keys())  # 'input_ids', 'attention_mask', 'labels' 확인
+
+# 4. 모델 구조 출력 (LoRA 타깃 모듈 확인용)
+print("✅ 첫 번째 attention 모듈 구조:")
+print(model.transformer.h[0].attn)
+
+# 5. LoRA 구성
 lora_config = LoraConfig(
     r=8,
-    lora_alpha=16,
-    target_modules=["c_attn"],  # GPT-2 구조에서 key module
-    lora_dropout=0.05,
+    lora_alpha=32,
+    target_modules=["c_attn"],  # 또는 ['c_attn'] → 구조 보고 맞춰 조정  "q_proj", "v_proj"
+    lora_dropout=0.1,
     bias="none",
-    task_type=TaskType.CAUSAL_LM,
+    task_type=TaskType.CAUSAL_LM
 )
+
 model = get_peft_model(model, lora_config)
 
-# 데이터셋 로드
-dataset = load_dataset("BCCard/BCAI-Finance-Kor", split="train[:2000]")  # 빠른 실험용
-
-# 프롬프트 구성 함수
-def format_prompt(example):
-    return {
-        "text": f"### 질문: {example['instruction']}\n\n### 답변: {example['output']}"
-    }
-
-dataset = dataset.map(format_prompt)
-
-# 훈련 설정
+# 6. 학습 설정
 training_args = TrainingArguments(
-    output_dir="./kogpt2-lora-finance",
+    output_dir=finetune_model_path,
     per_device_train_batch_size=4,
     num_train_epochs=3,
-    learning_rate=2e-4,
-    logging_steps=10,
-    fp16=True,
-    save_total_limit=1,
-    save_strategy="epoch",
+    logging_dir="./logs",
+    save_steps=500,
+    save_total_limit=2,
+    fp16=False  # ⚠️ MPS 사용시 반드시 False
 )
 
-trainer = SFTTrainer(
+# 7. 데이터 콜레이터
+data_collator = DataCollatorForLanguageModeling(
+    tokenizer=tokenizer,
+    mlm=False
+)
+
+# 8. 트레이너 구성
+trainer = Trainer(
     model=model,
-    # tokenizer=tokenizer,
-    # train_dataset=dataset,
-    # dataset_text_field="text",
-    # args=training_args,
-    # max_seq_length=512,
     args=training_args,
-    train_dataset=dataset,  # tokenizer 적용된 Dataset
-    max_seq_length=512,
+    train_dataset=dataset,
+    tokenizer=tokenizer,
+    data_collator=data_collator
 )
 
-trainer.train()
-model.save_pretrained("./kogpt2-lora-finance")
 
+# 학습 시작
+trainer.train()
+
+# 모델 저장
+model.save_pretrained(finetune_model_path)
+tokenizer.save_pretrained(finetune_model_path)
