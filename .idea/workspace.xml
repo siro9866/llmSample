@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b87d9fbd-3ec7-4c1b-9587-9a49f94939ee" name="변경" comment="kogpt2-base-v2 파인튜닝 및 테스트 성공">
-      <change afterPath="$PROJECT_DIR$/lora/zresult_finetune.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lora/zresult_origin.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lora/testModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/lora/testModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lora/zinfo.md" beforeDir="false" afterPath="$PROJECT_DIR$/lora/zinfo.md" afterDir="false" />
-    </list>
+    <list default="true" id="b87d9fbd-3ec7-4c1b-9587-9a49f94939ee" name="변경" comment="kogpt2-base-v2 파인튜닝 및 테스트 성공" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,7 +94,7 @@
       <updated>1747140249678</updated>
       <workItem from="1747618003802" duration="25131000" />
       <workItem from="1747874641067" duration="3672000" />
-      <workItem from="1747961068566" duration="1797000" />
+      <workItem from="1747961068566" duration="2395000" />
     </task>
     <task id="LOCAL-00001" summary="파일정리">
       <option name="closed" value="true" />
@@ -142,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747791577486</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="kogpt2-base-v2 파인튜닝 및 테스트 성공">
+      <option name="closed" value="true" />
+      <created>1747963432275</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1747963432275</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
