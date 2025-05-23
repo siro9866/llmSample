@@ -4,6 +4,7 @@ from datasets import load_dataset, load_from_disk
 from transformers import AutoTokenizer
 import os
 from functools import partial
+from com.env import DATA_ORIGIN_PATH, DATA_PREPROCESS_PATH
 
 # 허깅페이스에서 데이타셋 다운로드
 def save_dataset(data_model_name, data_origin_path):
@@ -43,11 +44,11 @@ def preprocess(example, tokenizer):
 
 # 전처리 데이타로 변환
 # save_dataMap 내부에서 tokenizer를 한 번만 로드하고 map에 전달
-def save_dataMap(data_origin_path, data_path):
+def save_dataMap(data_origin_path, data_preprocess_path, tokenize_model):
     from datasets import load_from_disk  # 혹은 getDataset 정의에 따라 다르게
 
     # 1. tokenizer 한번만 로드
-    tokenizer = AutoTokenizer.from_pretrained("skt/kogpt2-base-v2")
+    tokenizer = AutoTokenizer.from_pretrained(tokenize_model)
     tokenizer.pad_token = tokenizer.eos_token
 
     # 2. dataset 불러오기
@@ -66,9 +67,9 @@ def save_dataMap(data_origin_path, data_path):
     )
 
     # 5. 저장
-    print(f"데이타 저장될경로] {data_path}")
-    os.makedirs(data_path, exist_ok=True)
-    processed_dataset.save_to_disk(data_path)
+    print(f"데이타 저장될경로] {data_preprocess_path}")
+    os.makedirs(data_preprocess_path, exist_ok=True)
+    processed_dataset.save_to_disk(data_preprocess_path)
 
 def getDataMap(data_path):
     print(data_path)
@@ -76,10 +77,16 @@ def getDataMap(data_path):
 
 if __name__ == "__main__":
     # 판례
+    tokenize_model = "skt/kogpt2-base-v2"
     data_model_name = "kakao1513/AI_HUB_legal_QA_data"
-    data_origin_path = "/Users/Shared/app/llm/datasets/origin/AI_HUB_legal_QA_data"
-    data_path = "/Users/Shared/app/llm/datasets/preprocess/AI_HUB_legal_QA_data"
+    data_origin_path = os.path.join(DATA_ORIGIN_PATH, data_model_name)
+    data_preprocess_path = os.path.join(DATA_PREPROCESS_PATH, data_model_name)
+    #data_origin_path = "/Users/Shared/app/llm/datasets/origin/AI_HUB_legal_QA_data"
+    #data_path = "/Users/Shared/app/llm/datasets/preprocess/AI_HUB_legal_QA_data"
+
+    print(data_origin_path)
+    print(data_preprocess_path)
 
     #save_dataset(data_model_name, data_origin_path)
-    save_dataMap(data_origin_path, data_path)
+    # save_dataMap(data_origin_path, data_preprocess_path, tokenize_model)
 

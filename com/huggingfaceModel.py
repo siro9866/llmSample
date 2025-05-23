@@ -1,4 +1,5 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
+from com.env import MODEL_ORIGIN_PATH
 import os
 
 # 허깅 페이스 모델을 로컬에 저장
@@ -21,7 +22,9 @@ def loadModel(model_path):
 if __name__ == "__main__":
 
     model_name = "skt/kogpt2-base-v2"
-    model_path = "/Users/Shared/app/llm/model/origin/kogpt2-base-v2"
+    #model_path = "/Users/Shared/app/llm/model/origin/kogpt2-base-v2"
+    model_path = os.path.join(MODEL_ORIGIN_PATH, model_name)
+    print(model_path)
 
-    saveHuggingfaceModel(model_name, model_path)
+    #saveHuggingfaceModel(model_name, model_path)
     #loadModel(model_path)
