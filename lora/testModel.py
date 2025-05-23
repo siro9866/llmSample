@@ -15,7 +15,8 @@ def get_advice(query):
         str: 모델이 생성한 응답
     """
     # 모델 경로 설정
-    model_path = "/Users/Shared/app/llm/model/finetune/kogpt2-base-v2"
+    # model_path = "/Users/Shared/app/llm/model/origin/kogpt2-base-v2" # 튜닝전
+    model_path = "/Users/Shared/app/llm/model/finetune/kogpt2-base-v2" # 튜닝후
 
     try:
         # 토크나이저 로드
@@ -102,7 +103,10 @@ def get_advice(query):
 def test_model():
     test_queries = [
         "Since when has Seoul, the capital of Korea, been the capital?",
-        "회사가 부당해고를 했을 때 어떻게 대응해야 하나요?"
+        "기업의 경영권을 헌법상의 권리로 볼 수 있는가?",
+        "직권남용죄에서 말하는 '의무'에 심리적 의무감 또는 도덕적 의무가 해당되는가?",
+        "형사소송법 제212조 제2항이 뭐지",
+        "음주운전으로 사고를 내면 어떤 법의 근거로 처벌을 받나"
     ]
 
     print("===== 모델 테스트 시작 =====\n")
