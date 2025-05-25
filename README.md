@@ -10,3 +10,4 @@ pip install tiktoken    gecko
 pip install blobfile
 pip install sentencepiece
 
+pip install tokenizers
